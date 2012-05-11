@@ -1,0 +1,124 @@
+CLASS Baselog
+CLASS FIELDS : Type,ID,Streetnumber,Streetname,Postcode,Day,Month,Year,Hours,Minutes
+
+Alternate Constructor
+	IMPORT inType,inID,inStreetnumber,inStreetname,inPostcode,inDay,inMonth,inYear,inHours,inMinutes
+	EXPORT address of new date class object
+	
+	Type = inType
+	ID = inID
+	Streetnumber = inStreetnumber
+	Streetname = inStreetname
+	Postcode = inPostcode
+	Day = inDay
+	Month = inMonth
+	Year = inYear
+	Hours = inHours
+	Minutes = inMinutes
+//Validating ID
+	IF (1000 =< ID <=9999)
+	THEN 
+		return ID = True
+	ELSE 
+		return ID = False
+
+//Validating Postcode
+	IF (0 =< Postcode =< 7999)
+	THEN 
+		return Postcode = True
+	ELSE
+		return Postcode = False
+//Validating DaysinMonth
+	IF month is 4, 6, 9 or 11 THEN
+	DaysinMonth = 30
+	ELSE
+		IF month is 1, 3, 5, 7, 8, 10 or 12 THEN
+		DaysinMonth = 31
+		ELSE
+			IF month is 2 THEN
+			DaysinMonth = 28
+			ENDIF		
+		ENDIF
+
+	ENDIF
+//Validating day
+	IF (1 =< Day =< DaysinMonth)
+	THEN
+		return Day = True
+	ELSE
+		return Day = False
+//Validating month
+	IF (1 =< Month =< 12)
+	THEN
+		return Month = True
+	ELSE
+		return Month = False
+//Validating hours
+	IF (0 =< Hours =< 24)
+	THEN
+		return Hours = True
+	ELSE
+		return Hours = False
+//Validating minutes
+	IF (0 =< Minutes < 60)
+	THEN
+		return Minutes = True
+	ELSE
+		return Minutes = False
+
+Copy Constructor
+	IMPORT inBl (Baselog)
+
+	Type = inBl.getType
+	ID = inBl.getID
+	Streetnumber = inBl.getStreetnumber
+	Streetname = inBl.getStreetname
+	Postcode = inBl.getPostcode
+	Day = inBl.getDay
+	Month = inBl.getMonth
+	Year = inBl.getYear
+	Hours = inBl.getHours
+	Minutes = inBl.getminutes
+
+Accessor getType
+	IMPORT none
+	EXPORT Type
+
+Accessor getID
+	IMPORT none
+	EXPORT ID
+
+Accessor getStreetnumber
+	IMPORT none
+	EXPORT Streetnumber
+
+Accessor getStreetname
+	IMPORT none
+	EXPORT Streetname
+
+Accessor getPostcode
+	IMPORT none
+	EXPORT Postcode
+
+Accessor getDay
+	IMPORT none
+	EXPORT Day
+
+Accessor getMonth
+	IMPORT none
+	EXPORT Month
+
+Accessor getYear
+	IMPORT none
+	EXPORT Year
+
+Accessor getHours
+	IMPORT none
+	EXPORT Hours
+
+Accessor getMinutes
+	IMPORT none
+	EXPORT Minutes
+
+
+	
