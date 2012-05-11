@@ -120,5 +120,18 @@ Accessor getMinutes
 	IMPORT none
 	EXPORT Minutes
 
+Accessor toString
+	IMPORT none
+	EXPORT stateStr
+	stateStr = "Type = ", Type,"ID = ", ID,"Streetnumber = ", Streetnumber,"Streetname = ", Streetname,"Postcode = ", Postcode,"Day = ", Day,"Month = ", Month,"Year = ", Year,"Hours = ", Hours,"Minutes = ", Minutes,
+
+Accessor Equal
+	IMPORT inBl(Baselog)
+	EXPORT isEqual
+	isEqual = False
+	IF isEqual = (Type.equals<--inBl.getType AND ID.equals<--inBl.getID AND Streetnumber.equals<--inBl.getStreetnumber AND Streetname.equals<--inBl.getStreetname AND Postcode.equals<--inBl.getPostcode AND Day.equals<--inBl.getDay AND Month.equals<--inBl.getMonth AND Year.equals<--inBl.getYear AND Hours.equals<--inBl.getHours AND Minutes.equals<--inBl.getMinutes) THEN
+	isEqual = True 
+
+
 
 	
